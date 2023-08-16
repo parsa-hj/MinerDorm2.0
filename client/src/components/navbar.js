@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const pages = ['Dorms', 'About'];
-const settings = ['Profile', 'Account', 'Your Ratings', 'Logout'];
+const settings = ['Account', 'Your Ratings', 'Logout'];
 
 
 function NavBar() {
@@ -39,14 +39,21 @@ function NavBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = async () => {
-    try {
-      await signOut(auth);
-      navigate('/');
-      console.log('User signed out');
-    } catch (error) {
-      console.error('Logout error:', error.message);
+  const handleCloseUserMenu = (setting) => {
+    if (setting === 'Logout') {
+      try {
+        signOut(auth);
+        navigate('/');
+        console.log('User signed out');
+      } catch (error) {
+        console.error('Logout error:', error.message);
+      }
+    } else if (setting === 'Account') {
+      navigate('userprofile');
+    } else if (setting === 'Your Ratings') {
+      navigate('userratings');
     }
+  
     setAnchorElUser(null); // Close the user menu
   };
 

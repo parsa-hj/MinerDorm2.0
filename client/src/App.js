@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
@@ -28,8 +29,9 @@ function App() {
         <Route path="SignIn" element={<SignIn />} />
         <Route path="SignUp" element={<SignUp />} />
 
-        <Route path="userprofile" element={<UserProfile />} />
-        <Route path="userratings" element={<UserRatings />} />
+
+        <Route path="userprofile" element={<PrivateRoute auth={auth}><UserProfile /></PrivateRoute>} />
+        <Route path="userratings" element={<PrivateRoute auth={auth}><UserRatings /></PrivateRoute>} />
       </Routes>
     </div>
   );
