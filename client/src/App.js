@@ -5,6 +5,8 @@ import Dorms from "./pages/Dorms";
 import DormDetails from "./pages/DormDetails";
 import UserProfile from "./pages/UserProfile";
 import NavBar from './components/navbar';
+import About from './pages/About';
+import UserRatings from "./pages/UserRatings";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="dormdetails" element={<DormDetails />} />
         <Route path="Dorms" element={<Dorms />} />
         <Route path="userprofile" element={<UserProfile />} />
+        <Route path="About" element={<About />} />
+        <Route path="userratings" element={<UserRatings />} />
       </Routes>
     </div>
   );
